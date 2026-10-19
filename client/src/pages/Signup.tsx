@@ -1,0 +1,132 @@
+import { Link } from 'react-router-dom'
+import { useState } from 'react'
+
+const Signup = () => {
+    const [form, setForm] = useState({
+        name: "",
+        email: '',
+        password: '',
+        confirmPassword: ''
+    })
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    }
+    const handleCreate = ()=>{
+        const res = fetch('')
+
+    }
+    return (
+        <div className="min-h-screen bg-grid-pattern font-mono flex items-center justify-center px-4">
+            {/* Terminal Card */}
+            <div className="w-full max-w-md border border-white/10 bg-surface-light/80 backdrop-blur-sm">
+                {/* Terminal Header Bar */}
+                <div className="flex items-center px-4 py-3 border-b border-white/10 text-xs text-slate-500">
+                    <div className="flex gap-2 mr-4">
+                        <div className="w-2.5 h-2.5 border border-slate-600"></div>
+                        <div className="w-2.5 h-2.5 border border-slate-600"></div>
+                        <div className="w-2.5 h-2.5 border border-slate-600"></div>
+                    </div>
+                    <span className="text-cyan-400/70">~/null-room/signup</span>
+                </div>
+
+                {/* Card Body */}
+                <div className="p-8 flex flex-col gap-6">
+                    {/* Heading */}
+                    <div className="flex flex-col gap-1">
+                        <h1 className="text-2xl font-bold text-white tracking-tight">
+                            <span className="text-cyan-400 glow-text-cyan">{'>'}</span> Create account
+                        </h1>
+                        <p className="text-sm text-slate-500">
+                            Initialize a new identity.
+                        </p>
+                    </div>
+
+                    {/* Form Fields */}
+                    <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-1.5">
+                            <label htmlFor="name" className="text-xs text-slate-400 tracking-widest uppercase">
+                                Name
+                            </label>
+                            <input
+                                name='name'
+                                value={form.name}
+                                onChange={handleChange}
+                                id="name"
+                                type="text"
+                                placeholder="null_ptr"
+                                className="w-full bg-surface border border-white/10 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 outline-none focus:border-cyan-400/50 transition-colors"
+                            />
+                        </div>
+
+                        <div className="flex flex-col gap-1.5">
+                            <label htmlFor="email" className="text-xs text-slate-400 tracking-widest uppercase">
+                                Email
+                            </label>
+                            <input
+                                name='email'
+                                value={form.email}
+                                onChange={handleChange}
+                                id="email"
+                                type="email"
+                                placeholder="user@null-room.dev"
+                                className="w-full bg-surface border border-white/10 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 outline-none focus:border-cyan-400/50 transition-colors"
+                            />
+                        </div>
+
+                        <div className="flex flex-col gap-1.5">
+                            <label htmlFor="password" className="text-xs text-slate-400 tracking-widest uppercase">
+                                Password
+                            </label>
+                            <input
+                                name='password'
+                                value={form.password}
+                                onChange={handleChange}
+                                id="password"
+                                type="password"
+                                placeholder="••••••••"
+                                className="w-full bg-surface border border-white/10 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 outline-none focus:border-cyan-400/50 transition-colors"
+                            />
+                        </div>
+
+                        <div className="flex flex-col gap-1.5">
+                            <label htmlFor="confirm-password" className="text-xs text-slate-400 tracking-widest uppercase">
+                                Confirm Password
+                            </label>
+                            <input
+                                name='confirmPassword'
+                                value={form.confirmPassword}
+                                onChange={handleChange}
+                                id="confirm-password"
+                                type="password"
+                                placeholder="••••••••"
+                                className="w-full bg-surface border border-white/10 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 outline-none focus:border-cyan-400/50 transition-colors"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Button */}
+                    <div className="flex flex-col gap-3 mt-2">
+                        <button onClick= {handleCreate}className="w-full bg-cyan-400 text-black py-2.5 text-sm font-bold tracking-widest uppercase hover:bg-cyan-300 transition-colors glow-box-cyan">
+                            Create Account
+                        </button>
+                    </div>
+
+                    {/* Bottom Links */}
+                    <div className="flex flex-col gap-2 pt-2 border-t border-white/10 text-xs text-slate-500">
+                        <p>
+                            Already have an account?{' '}
+                            <Link to="/login" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                                Login
+                            </Link>
+                        </p>
+                        <Link to="/Home" className="text-slate-600 hover:text-slate-400 transition-colors">
+                            &larr; Back to home
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default Signup

@@ -4,7 +4,7 @@ import Features from '../components/Features'
 import HowItWorks from '../components/HowItWorks'
 import Footer from '../components/Footer'
 
-function App() {
+function Home() {
     return (
         <div className="min-h-screen bg-grid-pattern text-slate-300 font-mono w-full flex flex-col items-center overflow-x-hidden">
             <div className="w-full max-w-7xl px-4 md:px-12 flex flex-col gap-24 pb-12">
@@ -20,4 +20,4 @@ function App() {
     )
 }
 
-export default App
+export default Home
