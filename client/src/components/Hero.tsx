@@ -2,82 +2,70 @@ import React from 'react'
 
 const Hero = () => {
     return (
-        <div className='w-full pt-20 pb-10 flex flex-col lg:flex-row items-center justify-between gap-12'>
-            <div className='w-full lg:w-1/2 flex flex-col gap-8'>
-                <div className='flex items-center gap-3 text-cyan-400 text-xs tracking-widest uppercase font-bold'>
-                    <div className='w-2 h-2 bg-cyan-400 glow-box-cyan'></div>
+        // Removed oversized hero spacing, gradient backgrounds, and neon glow effects
+        <div className='w-full py-4 flex flex-col lg:flex-row items-start justify-between gap-4 font-[Verdana,Arial,sans-serif] text-[13px] text-[#222]'>
+            <div className='w-full lg:w-1/2 flex flex-col gap-3'>
+                <div className='text-[12px] text-[#555]'>
                     <span>4,182 rooms live now</span>
                 </div>
                 
-                <h1 className='text-5xl md:text-7xl font-sans font-bold leading-[1.1] tracking-tight'>
-                    <span className='text-white block'>Learn to code</span>
-                    <span className='text-cyan-400 block glow-text-cyan'>together, in</span>
-                    <span className='text-white block'>real time.</span>
+                <h1 className='text-lg font-bold text-[#222] leading-tight'>
+                    Learn to code together, in real time.
                 </h1>
 
-                <p className='text-slate-400 text-lg md:text-xl leading-relaxed max-w-lg'>
+                <p className='text-[13px] text-[#222] leading-normal'>
                     A collaborative classroom that runs like a terminal. Shared buffers, live cursors, voice on tap, and permissions you actually control.
                 </p>
                 
-                <div className='flex flex-wrap gap-4 mt-4 text-sm font-bold tracking-widest uppercase'>    
-                    <button className='bg-cyan-400 text-black px-6 py-3 hover:bg-cyan-300 transition-colors flex items-center gap-2 glow-box-cyan'>
-                        Create a room <span>&rarr;</span>
+                <div className='flex flex-wrap gap-2 mt-1'>    
+                    <button className='bg-[#f0f0f0] border border-[#b9b9b9] px-3 py-1 text-[13px] text-[#222] hover:bg-[#e8e8e8] active:bg-[#ddd] cursor-pointer rounded-none'>
+                        Create a room &rarr;
                     </button>
-                    <button className='border border-cyan-400 text-cyan-400 px-6 py-3 hover:bg-cyan-400/10 transition-colors'>
+                    <button className='bg-[#f0f0f0] border border-[#b9b9b9] px-3 py-1 text-[13px] text-[#222] hover:bg-[#e8e8e8] active:bg-[#ddd] cursor-pointer rounded-none'>
                         Join a room
                     </button>
                 </div>
-            </div >
+            </div>
 
-            <div className='w-full lg:w-1/2 mt-12 lg:mt-0'>
-                <div className='bg-black border border-white/10 rounded-sm overflow-hidden shadow-2xl relative'>
-                    <div className='absolute inset-0 bg-gradient-to-b from-cyan-900/10 to-transparent pointer-events-none'></div>
-                    
-                    {/* Terminal Header */}
-                    <div className='flex items-center px-4 py-3 border-b border-white/10 text-xs text-slate-500'>
-                        <div className='flex gap-2 mr-4'>
-                            <div className='w-2.5 h-2.5 border border-slate-600'></div>
-                            <div className='w-2.5 h-2.5 border border-slate-600'></div>
-                            <div className='w-2.5 h-2.5 border border-slate-600'></div>
-                        </div>
-                        <span className='text-cyan-400/70'>~/cs101/room.ts</span>
+            {/* Removed faux Mac window buttons, drop shadows, and neon syntax highlighting; styled as Codeforces roundbox */}
+            <div className='w-full lg:w-1/2 mt-2 lg:mt-0'>
+                <div className='border border-[#b9b9b9] bg-white rounded-none'>
+                    {/* Roundbox Header */}
+                    <div className='bg-[#e1e1e1] border-b border-[#b9b9b9] px-2.5 py-1 text-[13px] font-bold text-[#222]'>
+                        ~/cs101/room.ts
                     </div>
 
                     {/* Code Content */}
-                    <div className='p-6 text-sm md:text-base leading-relaxed overflow-x-auto'>
+                    <div className='p-2.5 text-[12px] font-mono leading-normal overflow-x-auto bg-[#fafafa]'>
                         <div className='flex'>
-                            <span className='text-slate-600 w-8 select-none'>1</span>
-                            <span><span className='text-purple-400'>const</span> <span className='text-white'>room</span> <span className='text-cyan-400'>=</span> <span className='text-purple-400'>await</span> <span className='text-white'>syncd.</span><span className='text-blue-400'>create</span><span className='text-cyan-400'>{'{'}</span></span>
+                            <span className='text-[#888] w-6 select-none'>1</span>
+                            <span><span className='text-[#0000cc] font-bold'>const</span> room = <span className='text-[#0000cc] font-bold'>await</span> syncd.create({'{'}</span>
                         </div>
                         <div className='flex'>
-                            <span className='text-slate-600 w-8 select-none'>2</span>
-                            <span className='pl-8'><span className='text-white'>name:</span> <span className='text-green-400'>"cs101-week-04"</span><span className='text-white'>,</span></span>
+                            <span className='text-[#888] w-6 select-none'>2</span>
+                            <span className='pl-4'>name: <span className='text-[#008000]'>"cs101-week-04"</span>,</span>
                         </div>
                         <div className='flex'>
-                            <span className='text-slate-600 w-8 select-none'>3</span>
-                            <span className='pl-8'><span className='text-white'>mode:</span> <span className='text-green-400'>"shared-project"</span><span className='text-white'>,</span></span>
+                            <span className='text-[#888] w-6 select-none'>3</span>
+                            <span className='pl-4'>mode: <span className='text-[#008000]'>"shared-project"</span>,</span>
                         </div>
                         <div className='flex'>
-                            <span className='text-slate-600 w-8 select-none'>4</span>
-                            <span className='pl-8'><span className='text-white'>write:</span> <span className='text-white'>[</span><span className='text-green-400'>"@ada"</span><span className='text-white'>, </span><span className='text-green-400'>"@linus"</span><span className='text-white'>],</span></span>
+                            <span className='text-[#888] w-6 select-none'>4</span>
+                            <span className='pl-4'>write: [<span className='text-[#008000]'>"@ada"</span>, <span className='text-[#008000]'>"@linus"</span>],</span>
                         </div>
                         <div className='flex'>
-                            <span className='text-slate-600 w-8 select-none'>5</span>
-                            <span className='text-cyan-400'>{'}'}</span><span className='text-white'>)</span>
+                            <span className='text-[#888] w-6 select-none'>5</span>
+                            <span>{'}'})</span>
                         </div>
                     </div>
 
-                    {/* Terminal Footer */}
-                    <div className='flex items-center gap-3 px-4 py-3 border-t border-white/10 text-xs text-slate-500 bg-white/[0.02]'>
-                        <div className='flex items-center gap-1.5'>
-                            <div className='w-2 h-2 rounded-full bg-cyan-400'></div>
-                            <span className='text-white'>ada</span>
+                    {/* Roundbox Footer */}
+                    <div className='bg-[#f5f5f5] border-t border-[#b9b9b9] px-2.5 py-1 text-[11px] text-[#555] flex items-center justify-between'>
+                        <div className='flex items-center gap-2'>
+                            <span className='font-bold text-[#222]'>ada</span>,
+                            <span className='font-bold text-[#222]'>linus</span>
                         </div>
-                        <div className='flex items-center gap-1.5'>
-                            <div className='w-2 h-2 rounded-full bg-purple-400'></div>
-                            <span className='text-white'>linus</span>
-                        </div>
-                        <span className='ml-2'>- 2 collaborators editing</span>
+                        <span>2 collaborators editing</span>
                     </div>
                 </div>
             </div>

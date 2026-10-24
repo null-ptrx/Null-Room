@@ -6,10 +6,11 @@ import Footer from '../components/Footer'
 
 function Home() {
     return (
-        <div className="min-h-screen bg-grid-pattern text-slate-300 font-mono w-full flex flex-col items-center overflow-x-hidden">
-            <div className="w-full max-w-7xl px-4 md:px-12 flex flex-col gap-24 pb-12">
+        // Removed custom dark grid patterns, monospace typography, and extra spacing
+        <div className="min-h-screen bg-white text-[#222] font-[Verdana,Arial,sans-serif] text-[13px] flex flex-col items-center">
+            <div className="w-full max-w-6xl px-3 flex flex-col">
                 <Navber />
-                <main className="flex flex-col gap-32">
+                <main className="flex flex-col gap-2 py-2">
                     <Hero />
                     <Features />
                     <HowItWorks />
@@ -21,3 +22,4 @@ function Home() {
 }
 
 export default Home
+

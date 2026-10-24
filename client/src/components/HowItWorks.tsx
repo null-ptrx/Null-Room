@@ -20,37 +20,37 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="w-full flex flex-col gap-8">
-      <div className="flex items-center gap-4 text-slate-500 text-sm font-bold tracking-widest uppercase">
-        <span>//</span>
-        <h2>How It Works</h2>
-      </div>
+    // Removed neon corner accents, cyan glow, dark backgrounds, and hover animations; restyled with Codeforces roundboxes
+    <section id="how-it-works" className="w-full my-3 font-[Verdana,Arial,sans-serif] text-[13px] text-[#222]">
+      <div className="border border-[#b9b9b9] bg-white rounded-none">
+        <div className="bg-[#e1e1e1] border-b border-[#b9b9b9] px-2.5 py-1 text-[13px] font-bold text-[#222]">
+          → How It Works
+        </div>
 
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
-        {steps.map((step, index) => (
-          <React.Fragment key={index}>
-            <div className="flex-1 w-full border border-white/10 bg-black p-8 hover:bg-white/[0.02] transition-colors flex flex-col gap-6 relative group">
-              {/* Corner Accents */}
-              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div className="p-2.5 flex flex-col md:flex-row items-stretch gap-3">
+          {steps.map((step, index) => (
+            <React.Fragment key={index}>
+              <div className="flex-1 border border-[#b9b9b9] bg-white rounded-none flex flex-col">
+                <div className="bg-[#e1e1e1] border-b border-[#b9b9b9] px-2 py-1 font-bold text-[12px] text-[#222]">
+                  Step {step.num}: {step.title}
+                </div>
+                <div className="p-2 text-[12px] text-[#222] leading-normal flex-1">
+                  {step.description}
+                </div>
+              </div>
               
-              <div className="text-cyan-400 font-bold text-2xl mb-4 glow-text-cyan">{step.num}</div>
-              <div>
-                <h3 className="text-white font-bold text-lg mb-2">{step.title}</h3>
-                <p className="text-slate-400 text-sm">{step.description}</p>
-              </div>
-            </div>
-            
-            {index < steps.length - 1 && (
-              <div className="hidden md:flex text-slate-600 font-mono items-center justify-center">
-                &rarr;
-              </div>
-            )}
-          </React.Fragment>
-        ))}
+              {index < steps.length - 1 && (
+                <div className="hidden md:flex items-center justify-center text-[#888] font-bold px-1 select-none">
+                  &rarr;
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 export default HowItWorks;
+

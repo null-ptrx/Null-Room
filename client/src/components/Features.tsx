@@ -45,33 +45,40 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="w-full flex flex-col gap-8">
-      <div className="flex items-center gap-4 text-slate-500 text-sm font-bold tracking-widest uppercase">
-        <span>//</span>
-        <h2>Features</h2>
-      </div>
+    // Removed 4-column icon cards, hover transitions, and decorative dark grid; replaced with Codeforces roundbox panel and table
+    <section id="features" className="w-full my-3 font-[Verdana,Arial,sans-serif] text-[13px] text-[#222]">
+      <div className="border border-[#b9b9b9] bg-white rounded-none">
+        <div className="bg-[#e1e1e1] border-b border-[#b9b9b9] px-2.5 py-1 text-[13px] font-bold text-[#222]">
+          → Features
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-white/10 bg-white/[0.02]">
-        {features.map((feature, index) => (
-          <div 
-            key={index} 
-            className={`p-8 flex flex-col gap-6 hover:bg-white/[0.04] transition-colors border-b lg:border-b-0
-              ${index < features.length - 1 ? 'lg:border-r border-white/10' : ''}
-              ${index % 2 === 0 ? 'md:border-r border-white/10' : ''}
-            `}
-          >
-            <div className="w-10 h-10 flex items-center justify-center border border-white/10 bg-black text-cyan-400 rounded-sm">
-              {feature.icon}
-            </div>
-            <div>
-              <h3 className="text-white font-bold mb-3">{feature.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{feature.description}</p>
-            </div>
-          </div>
-        ))}
+        <div className="overflow-x-auto p-2">
+          <table className="w-full border-collapse border border-[#b9b9b9] text-[13px] text-left">
+            <thead>
+              <tr className="bg-[#f0f0f0] border-b border-[#b9b9b9] font-bold text-[#222]">
+                <th className="border border-[#b9b9b9] px-2 py-1 w-10 text-center">#</th>
+                <th className="border border-[#b9b9b9] px-2 py-1 w-1/3">Feature</th>
+                <th className="border border-[#b9b9b9] px-2 py-1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              {features.map((feature, index) => (
+                <tr 
+                  key={index} 
+                  className={`border-b border-[#b9b9b9] ${index % 2 === 0 ? 'bg-white' : 'bg-[#f5f5f5]'}`}
+                >
+                  <td className="border border-[#b9b9b9] px-2 py-1 text-center text-[#555]">{index + 1}</td>
+                  <td className="border border-[#b9b9b9] px-2 py-1 font-bold text-[#222]">{feature.title}</td>
+                  <td className="border border-[#b9b9b9] px-2 py-1 text-[#222]">{feature.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Features;
+

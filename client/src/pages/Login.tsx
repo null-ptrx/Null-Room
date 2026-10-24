@@ -11,91 +11,84 @@ const Login = () => {
     };
     const handleLogin = async (e : React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-await fetch('http://localhost:3000/login', {
+        await fetch('http://localhost:3000/login', {
             method : 'POST',
             headers : {'Content-Type' : "application/json"},
             body : JSON.stringify(form)
         });
     }
   return (
-    <div className="min-h-screen bg-grid-pattern font-mono flex items-center justify-center px-4">
-      {/* Terminal Card */}
-      <div className="w-full max-w-md border border-white/10 bg-surface-light/80 backdrop-blur-sm">
-        {/* Terminal Header Bar */}
-        <div className="flex items-center px-4 py-3 border-b border-white/10 text-xs text-slate-500">
-          <div className="flex gap-2 mr-4">
-            <div className="w-2.5 h-2.5 border border-slate-600"></div>
-            <div className="w-2.5 h-2.5 border border-slate-600"></div>
-            <div className="w-2.5 h-2.5 border border-slate-600"></div>
-          </div>
-          <span className="text-cyan-400/70">~/null-room/login</span>
+    // Removed terminal dark background, grid overlay, and cyan glows; replaced with Codeforces roundbox form
+    <div className="min-h-screen bg-white font-[Verdana,Arial,sans-serif] text-[13px] text-[#222] flex items-center justify-center p-4">
+      {/* Codeforces Roundbox */}
+      <div className="w-full max-w-sm border border-[#b9b9b9] bg-white rounded-none">
+        {/* Roundbox Header Bar */}
+        <div className="bg-[#e1e1e1] border-b border-[#b9b9b9] px-2.5 py-1 text-[13px] font-bold text-[#222]">
+          → Login into Null-Room
         </div>
 
         {/* Card Body */}
-        <div className="p-8 flex flex-col gap-6">
-          {/* Heading */}
-          <div className="flex flex-col gap-1">
-            <h1 className="text-2xl font-bold text-white tracking-tight">
-              <span className="text-cyan-400 glow-text-cyan">{'>'}</span> Welcome back
-            </h1>
-            <p className="text-sm text-slate-500">
-              Authenticate to enter the room.
-            </p>
+        <div className="p-4 flex flex-col gap-3">
+          {/* Subheading / notice */}
+          <div className="text-[12px] text-[#555] border-b border-[#e1e1e1] pb-2">
+            Enter your credentials to enter the room.
           </div>
 
           {/* Form Fields */}
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="email" className="text-xs text-slate-400 tracking-widest uppercase">
-                Email
+          <div className="flex flex-col gap-2.5">
+            <div className="flex flex-col gap-1">
+              <label htmlFor="email" className="text-[12px] font-bold text-[#222]">
+                Email:
               </label>
               <input
-               onChange={handleChange}
+                onChange={handleChange}
                 id="email"
                 type="email"
                 name="email"
-                value = {form.email}
+                value={form.email}
                 placeholder="user@null-room.dev"
-                className="w-full bg-surface border border-white/10 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 outline-none focus:border-cyan-400/50 transition-colors"
+                className="w-full bg-white border border-[#b9b9b9] px-2 py-1 text-[13px] text-[#222] rounded-none outline-none focus:border-[#777]"
               />
             </div>
 
-            <div className="flex flex-col gap-1.5">
-              <label htmlFor="password" className="text-xs text-slate-400 tracking-widest uppercase">
-                Password
+            <div className="flex flex-col gap-1">
+              <label htmlFor="password" className="text-[12px] font-bold text-[#222]">
+                Password:
               </label>
               <input
-               onChange={handleChange}
-               value = {form.password}
+                onChange={handleChange}
+                value={form.password}
                 id="password"
                 type="password"
                 name="password"
                 placeholder="••••••••"
-                className="w-full bg-surface border border-white/10 px-4 py-2.5 text-sm text-slate-200 placeholder-slate-600 outline-none focus:border-cyan-400/50 transition-colors"
+                className="w-full bg-white border border-[#b9b9b9] px-2 py-1 text-[13px] text-[#222] rounded-none outline-none focus:border-[#777]"
               />
             </div>
           </div>
 
           {/* Buttons */}
-          <div className="flex flex-col gap-3 mt-2">
-                      <button onClick={handleLogin} className="w-full bg-cyan-400 text-black py-2.5 text-sm font-bold tracking-widest uppercase hover:bg-cyan-300 transition-colors glow-box-cyan"
-          >
+          <div className="flex flex-col gap-2 mt-1">
+            <button 
+              onClick={handleLogin} 
+              className="w-full bg-[#f0f0f0] border border-[#b9b9b9] px-3 py-1 text-[13px] text-[#222] hover:bg-[#e8e8e8] active:bg-[#ddd] cursor-pointer rounded-none font-normal"
+            >
               Login
             </button>
-            <button className="w-full border border-white/10 text-slate-400 py-2.5 text-sm font-bold tracking-widest uppercase hover:border-cyan-400/50 hover:text-cyan-400 transition-colors">
+            <button className="w-full bg-[#f0f0f0] border border-[#b9b9b9] px-3 py-1 text-[13px] text-[#222] hover:bg-[#e8e8e8] active:bg-[#ddd] cursor-pointer rounded-none font-normal">
               Continue as Guest
             </button>
           </div>
 
           {/* Bottom Links */}
-          <div className="flex flex-col gap-2 pt-2 border-t border-white/10 text-xs text-slate-500">
-            <p>
+          <div className="flex flex-col gap-1.5 pt-2 border-t border-[#b9b9b9] text-[12px]">
+            <p className="m-0">
               No account?{' '}
-              <Link to="/signup" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+              <Link to="/signup" className="text-[#0000cc] hover:underline">
                 Sign up
               </Link>
             </p>
-            <Link to="/Home" className="text-slate-600 hover:text-slate-400 transition-colors">
+            <Link to="/Home" className="text-[#0000cc] hover:underline">
               &larr; Back to home
             </Link>
           </div>
@@ -106,3 +99,4 @@ await fetch('http://localhost:3000/login', {
 }
 
 export default Login
+
