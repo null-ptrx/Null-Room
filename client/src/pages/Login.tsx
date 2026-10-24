@@ -11,11 +11,12 @@ const Login = () => {
     };
     const handleLogin = async (e : React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        await fetch('http://localhost:3000/login', {
+        let res = await fetch('http://localhost:3000/login', {
             method : 'POST',
             headers : {'Content-Type' : "application/json"},
             body : JSON.stringify(form)
         });
+        console.log(res)
     }
   return (
     // Removed terminal dark background, grid overlay, and cyan glows; replaced with Codeforces roundbox form

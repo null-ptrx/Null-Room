@@ -11,8 +11,12 @@ const Signup = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     }
-    const handleCreate = ()=>{
-        const res = fetch('')
+    const handleCreate = async ()=>{
+        await fetch('http://localhost:3000/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': "application/json" },
+            body: JSON.stringify(form)
+        });
     }
     return (
         // Removed terminal dark theme, neon cyan accents, and uppercase tracking; replaced with Codeforces roundbox
