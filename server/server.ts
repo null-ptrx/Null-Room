@@ -5,6 +5,7 @@ import 'dotenv/config';
 import { connectDB } from './config/db.ts';
 import bcrypt from 'bcrypt'
 import User from './models/User.ts';
+import jwt from 'jsonwebtoken';
 const app = express();
 const port = 3000;
 app.use(cors());
@@ -24,8 +25,12 @@ app.post('/login', async (req: Request, res: Response) => {
         if (!ok) {
            return res.status(401).json({ message : 'Invalid password'});
         }
-
-    res.status(200).json({ message : 'login sucess', name : user.name, email : user.email});
+        const token = jwt.sign(
+            {id : user._id},
+            process.env.JWT_SECRET as string,
+            { expiresIn : '7d'}
+        )
+    res.status(200).json({ message : 'login sucess',token,  name : user.name, email : user.email,  });
         
    
 }) ;
