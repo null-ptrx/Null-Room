@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
 
 const Hero = () => {
   return (
@@ -20,11 +20,8 @@ const Hero = () => {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 mt-2">
-          <Link
-            to="/create-room"
-            className="w-full sm:w-auto bg-white text-black border-2 border-black px-4 py-2 text-[14px] font-bold hover:bg-black hover:text-white cursor-pointer inline-block text-center no-underline"
-          >
-            Create a room &rarr;
+          <Link to='/create-room' className="w-full sm:w-auto bg-white text-black border-2 border-black px-4 py-2 text-[14px] font-bold hover:bg-black hover:text-white cursor-pointer"
+          > Create a room &rarr;
           </Link>
           <button className="w-full sm:w-auto bg-white text-black border-2 border-black px-4 py-2 text-[14px] font-bold hover:bg-black hover:text-white cursor-pointer">
             Join a room
