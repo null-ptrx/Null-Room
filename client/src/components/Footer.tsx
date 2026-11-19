@@ -1,5 +1,3 @@
-
-
 const Footer = () => {
   return (
     // Removed monospace typography, large top margins, and cyan transition colors; restyled with thin border and blue text links
