@@ -10,8 +10,17 @@ const Login = () => {
     setform({...form, [e.target.name] : e.target.value });
   }
 
-  const handleSubmit = () => {
-    
+  const handleSubmit = async () => {
+    console.log('hello')
+    await fetch("http://localhost:3000/login", {
+      method : "POST", 
+      headers : {
+        'Content-Type ' : "application/json"
+      },
+      body : JSON.stringify(form)
+    })
+
+
   }
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col justify-between selection:bg-foreground selection:text-background font-sans">
