@@ -1,56 +1,65 @@
-import React from 'react';
-
 const steps = [
   {
-    num: '01',
-    title: 'Create a room',
-    description: 'Spin up a sandbox in under a second.',
+    number: '1',
+    title: 'Create a room in two clicks',
+    summary: 'Pick a room name and launch. A unique invite code is created instantly.',
+    detail: 'Under the hood, Express and MongoDB allocate a room document with owner privileges and an initial Yjs document session.',
   },
   {
-    num: '02',
-    title: 'Invite friends',
-    description: 'Share a link. No installs, no accounts required.',
+    number: '2',
+    title: 'Share the link with peers',
+    summary: 'Send the URL or code to your classmates or review partner.',
+    detail: 'Guests can jump in immediately without filling out long onboarding forms. Their presence registers via Socket.IO.',
   },
   {
-    num: '03',
-    title: 'Code together',
-    description: 'Pair, review, and ship in the same buffer.',
-  }
+    number: '3',
+    title: 'Type, review, and talk',
+    summary: 'Multiple cursors move across the shared Monaco buffer in real time.',
+    detail: 'Yjs awareness handles cursor markers and color badges, while LiveKit carries low-latency voice without leaving the page.',
+  },
 ];
 
 const HowItWorks = () => {
   return (
-    // Removed neon corner accents, cyan glow, dark backgrounds, and hover animations; restyled with Codeforces roundboxes
-    <section id="how-it-works" className="w-full my-3 font-[Verdana,Arial,sans-serif] text-[13px] text-[#222]">
-      <div className="border border-[#b9b9b9] bg-white rounded-none">
-        <div className="bg-[#e1e1e1] border-b border-[#b9b9b9] px-2.5 py-1 text-[13px] font-bold text-[#222]">
-          → How It Works
+    <section id="how-it-works" className="w-full border-b border-border bg-background">
+      <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        
+        {/* Header */}
+        <div className="max-w-2xl mb-12">
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal tracking-tight text-foreground leading-[1.05]">
+            How a room works from start to finish
+          </h2>
+          <p className="font-sans text-sm sm:text-base text-foreground-secondary mt-3">
+            No terminal daemons to install on your local machine, and no separate video links to coordinate.
+          </p>
         </div>
 
-        <div className="p-2.5 flex flex-col md:flex-row items-stretch gap-3">
-          {steps.map((step, index) => (
-            <React.Fragment key={index}>
-              <div className="flex-1 border border-[#b9b9b9] bg-white rounded-none flex flex-col">
-                <div className="bg-[#e1e1e1] border-b border-[#b9b9b9] px-2 py-1 font-bold text-[12px] text-[#222]">
-                  Step {step.num}: {step.title}
-                </div>
-                <div className="p-2 text-[12px] text-[#222] leading-normal flex-1">
-                  {step.description}
-                </div>
+        {/* 3 Step Sequence with varied layout */}
+        <div className="grid grid-cols-1 md:grid-cols-3 border border-border divide-y md:divide-y-0 md:divide-x divide-border bg-card">
+          {steps.map((step) => (
+            <div key={step.number} className="p-6 sm:p-8 flex flex-col justify-between">
+              <div>
+                <span className="font-serif text-3xl sm:text-4xl text-muted-foreground block mb-4">
+                  0{step.number}
+                </span>
+                <h3 className="font-serif text-xl sm:text-2xl font-normal text-foreground mb-3">
+                  {step.title}
+                </h3>
+                <p className="font-sans text-sm text-foreground mb-4 leading-relaxed">
+                  {step.summary}
+                </p>
               </div>
-              
-              {index < steps.length - 1 && (
-                <div className="hidden md:flex items-center justify-center text-[#888] font-bold px-1 select-none">
-                  &rarr;
-                </div>
-              )}
-            </React.Fragment>
+
+              <div className="pt-4 border-t border-border text-xs text-foreground-secondary font-sans leading-normal">
+                {step.detail}
+              </div>
+            </div>
           ))}
         </div>
+
       </div>
     </section>
   );
 };
 
 export default HowItWorks;
-
