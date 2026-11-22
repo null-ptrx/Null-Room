@@ -33,7 +33,6 @@ const HowItWorks = () => {
             No terminal daemons to install on your local machine, and no separate video links to coordinate.
           </p>
         </div>
-
         {/* 3 Step Sequence with varied layout */}
         <div className="grid grid-cols-1 md:grid-cols-3 border border-border divide-y md:divide-y-0 md:divide-x divide-border bg-card">
           {steps.map((step) => (

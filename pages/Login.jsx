@@ -3,38 +3,7 @@ import { useState } from 'react';
 import { logConsoleEvent } from '../utils/consoleLogger';
 
 const Login = () => {
-  const [form, setForm] = useState({
-    email: '',
-    password: '',
-  });
-  const [status, setStatus] = useState<string | null>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    logConsoleEvent('REQ', 'POST /api/auth/login', { email: form.email });
-    try {
-      const res = await fetch('http://localhost:3000/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) {
-        logConsoleEvent('RES', `HTTP ${res.status} - Authentication failed`, { status: res.status });
-        setStatus('Invalid email or password.');
-      } else {
-        const data = await res.json().catch(() => ({}));
-        logConsoleEvent('RES', 'HTTP 200 - Logged in successfully', data);
-        setStatus('Logged in successfully.');
-      }
-    } catch (err) {
-      logConsoleEvent('SYS', 'Network connection refused at http://localhost:3000/login', String(err));
-      setStatus('Could not connect to the server.');
-    }
-  };
+  
 
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col justify-between selection:bg-foreground selection:text-background font-sans">

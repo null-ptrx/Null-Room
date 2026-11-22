@@ -1,21 +1,10 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { logConsoleEvent } from '../utils/consoleLogger';
 
 const Hero = () => {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyInvite = () => {
-    navigator.clipboard?.writeText('https://null.dev/r/x9k2');
-    setCopied(true);
-    logConsoleEvent('ACT', 'Copied invite link: https://null.dev/r/x9k2');
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <section className="w-full border-b border-border bg-background">
       <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-20">
-        
+
         {/* Large, human typographic statement */}
         <div className="max-w-4xl mb-12">
           <p className="text-xs uppercase tracking-widest text-muted-foreground font-mono mb-4">
@@ -32,8 +21,8 @@ const Hero = () => {
 
           <div className="flex flex-wrap items-center gap-5 mt-8">
             <Link to="/signup">
-              <button 
-                onClick={() => logConsoleEvent('ACT', 'User clicked Start a room')}
+              <button
+
                 className="bg-foreground text-background font-medium text-sm px-6 py-3 border border-foreground hover:bg-foreground/90 transition-colors cursor-pointer"
               >
                 Start a room
@@ -41,7 +30,7 @@ const Hero = () => {
             </Link>
             <Link
               to="/login"
-              onClick={() => logConsoleEvent('ACT', 'User clicked join with invite code')}
+
               className="text-sm text-foreground-secondary hover:text-foreground underline underline-offset-4"
             >
               or join with an invite code
@@ -57,10 +46,10 @@ const Hero = () => {
               <span className="font-medium text-foreground">Room: cs101-week-04</span>
               <button
                 type="button"
-                onClick={handleCopyInvite}
+           
                 className="text-muted-foreground border-l border-border pl-3 font-mono hover:text-foreground cursor-pointer"
               >
-                invite: <span className="text-foreground underline underline-offset-2">null.dev/r/x9k2</span> {copied ? '(copied!)' : ''}
+                invite: <span className="text-foreground underline underline-offset-2">null.dev/r/x9k2</span> 
               </button>
             </div>
             <div className="flex items-center gap-3 text-muted-foreground text-xs">
@@ -82,7 +71,7 @@ const Hero = () => {
                 </div>
                 <ul className="space-y-2 list-none p-0 m-0">
                   <li className="flex items-center justify-between text-foreground">
-                    <span className="font-medium">dhami (you)</span>
+                    <span className="font-medium">dhami </span>
                     <span className="text-[10px] border border-border px-1.5 py-0.5 text-muted-foreground">host</span>
                   </li>
                   <li className="flex items-center justify-between text-foreground-secondary">

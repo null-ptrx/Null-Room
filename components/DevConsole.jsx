@@ -1,6 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
-import { type ConsoleLog, logConsoleEvent } from '../utils/consoleLogger';
+
 
 const getNowTime = () => {
   const d = new Date();
