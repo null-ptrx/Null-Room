@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 const Navber = () => {
   return (
     <header className="w-full border-b border-border bg-background sticky top-0 z-50">

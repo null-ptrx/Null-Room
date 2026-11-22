@@ -1,14 +1,19 @@
-
+import Navber from "../components/Navber";
+import Hero from "../components/Hero"
+import Features from "../components/Features"
+import HowItWorks from "../components/HowItWorks"
+import Footer from "../components/Footer"
+import { Link } from "react-router-dom";
 function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col w-full selection:bg-foreground selection:text-background font-sans">
       <Navber />
       
       <main className="flex-1 w-full flex flex-col">
-        {/* Typographic Hero + Real Editor Preview */}
+
         <Hero />
 
-        {/* The "Why" Section: Human reason behind the project (Anti-AI tells rule 3 & 8) */}
+     
         <section id="why" className="w-full border-b border-border bg-card py-12 lg:py-16">
           <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -36,13 +41,13 @@ function Home() {
           </div>
         </section>
 
-        {/* Features: Asymmetric 7/5 Layout */}
+     
         <Features />
 
-        {/* How It Works: 3-Step Sequence */}
+    
         <HowItWorks />
 
-        {/* Tech Stack: Honest details directly from project architecture */}
+    
         <section id="stack" className="w-full border-b border-border bg-background py-14">
           <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mb-8">
@@ -94,7 +99,7 @@ function Home() {
           </div>
         </section>
 
-        {/* Clean, Human CTA Section */}
+    
         <section className="w-full border-b border-border bg-card py-14">
           <div className="w-full max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
             <div className="border border-border bg-background p-8 sm:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
